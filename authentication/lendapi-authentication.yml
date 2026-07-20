@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/lendapi-openapi.json
+docs: https://developer.lendapi.com/reference/introduction
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  oauth2_flows: []
+  scopes: none
+schemes:
+- name: sec0
+  type: apiKey
+  in: header
+  parameter: AUTHORIZATION
+  value_format: 'Bearer <api_key>'
+  default_example: Bearer [example key]
+  applied: global
+  sources:
+  - openapi/lendapi-openapi.json
+environment_selection:
+  mechanism: api-key
+  modes:
+  - test
+  - live
+  detail: >-
+    "The mode in which your request operates, either live or test, is determined by the
+    API key used for authentication." One header, one host -- the key alone decides
+    whether the call touches live data.
+  source: https://developer.lendapi.com/reference/introduction
+notes: >-
+  LendAPI uses a single API-key scheme applied globally to all 20 published
+  operations. The header is spelled AUTHORIZATION and the value is bearer-formatted,
+  but the scheme is declared as apiKey rather than http/bearer in the definition.
+  There is no OAuth 2.0, no OpenID Connect, no mTLS, and therefore no scope or
+  consent model -- see conventions/lendapi-conventions.yml. Key rotation, expiry and
+  provisioning are not documented in the public developer portal; keys are issued
+  through the LendAPI application at https://app.lendapi.com/login/.
+gaps:
+- No 401 or 403 response is documented on any operation.
+- No key rotation, expiry, or revocation policy is published.
+- No scope, permission, or least-privilege model exists for keys.
