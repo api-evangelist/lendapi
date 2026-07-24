@@ -1,0 +1,60 @@
+openapi: 3.1.0
+info:
+  title: lendapi Amortization Sub Tenants API
+  version: '1.0'
+servers:
+- url: https://app.lendapi.com/api/v1/
+security:
+- sec0: []
+tags:
+- name: Sub Tenants
+paths:
+  /sub_tenants:
+    get:
+      summary: List all Sub Tenants
+      description: List all Sub Tenants under the Parent Tenant
+      operationId: list-all-sub-tenants
+      parameters:
+      - name: start
+        in: query
+        description: index of record to start with
+        schema:
+          type: integer
+          format: int32
+      - name: size
+        in: query
+        description: max number of records to return
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Sub Tenants
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: AUTHORIZATION
+      x-default: Bearer your_api_key

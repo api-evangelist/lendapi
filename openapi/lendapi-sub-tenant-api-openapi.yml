@@ -1,0 +1,108 @@
+openapi: 3.1.0
+info:
+  title: lendapi Amortization Sub Tenant API
+  version: '1.0'
+servers:
+- url: https://app.lendapi.com/api/v1/
+security:
+- sec0: []
+tags:
+- name: Sub Tenant
+paths:
+  /sub_tenant/{tenant_id}:
+    get:
+      summary: Get Sub Tenant
+      description: This API returns the information related to the sub tenant.
+      operationId: get-sub-tenant
+      parameters:
+      - name: tenant_id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Sub Tenant
+  /sub_tenant/:
+    post:
+      summary: Create Sub Tenant
+      description: 'Creates a new Sub Tenant for the Tenant. client_id is an optional param which represents the external id of the sub-tenant. There are two types of Sub-Tenants: with login or without login. If the Sub Tenant doesn''t need to login, ignore first_name, last_name, email and password fields.'
+      operationId: create-sub-tenant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                  description: This is the name of the sub-tenant
+                cliend_id:
+                  type: string
+                  description: The external id of sub-tenant
+                first_name:
+                  type: string
+                  description: The first name of the sub-tenant admin, it is only required if sub-tenant login is enabled.
+                last_name:
+                  type: string
+                  description: The last name of the sub-tenant admin, it is only required if sub-tenant login is enabled
+                email:
+                  type: string
+                  description: The email of the sub-tenant admin, it is only required if sub-tenant login is enabled
+                password:
+                  type: string
+                  description: The password of the sub-tenant admin, it is only required if sub-tenant login is enabled. Password needs to be at least 8 characters, with lower case, upper case and letter.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Sub Tenant
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: AUTHORIZATION
+      x-default: Bearer your_api_key

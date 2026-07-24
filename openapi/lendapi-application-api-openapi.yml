@@ -1,0 +1,237 @@
+openapi: 3.1.0
+info:
+  title: lendapi Amortization Application API
+  version: '1.0'
+servers:
+- url: https://app.lendapi.com/api/v1/
+security:
+- sec0: []
+tags:
+- name: Application
+paths:
+  /application/:
+    post:
+      summary: Create application
+      description: The api can be used to create an application.
+      operationId: create-application
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - first_name
+              - last_name
+              - email
+              - product_id
+              properties:
+                first_name:
+                  type: string
+                  description: First name
+                last_name:
+                  type: string
+                  description: Last name
+                address1:
+                  type: string
+                  description: Adress line 1
+                address2:
+                  type: string
+                  description: Optional second line of the address
+                city:
+                  type: string
+                state:
+                  type: string
+                  description: state, for example NY, CA
+                zipcode:
+                  type: string
+                  description: 5 digits zipcode
+                email:
+                  type: string
+                mobile:
+                  type: string
+                  description: Mobile number, for example 9490001234
+                ssn:
+                  type: string
+                birth_date:
+                  type: string
+                  description: birth date in format MM/DD/YYYY
+                data:
+                  type: string
+                  format: json
+                  description: 'This is the LendAPI variable key value pair. For example, {"loan_amount": 2000, "loan_term": 12}'
+                product_id:
+                  type: integer
+                  description: The product ID of the application
+                  format: int32
+                tenant_id:
+                  type: string
+                  description: This is the UUID of the tenant, such as 550e8400-e29b-41d4-a716-446655440000
+            examples:
+              Request Example:
+                value:
+                  address1: 8751 MEADOWVALE DR
+                  address2: ''
+                  city: EDEN PRAIRIE
+                  birth_date: '1991-11-01'
+                  email: bobsmith+82@youremail.com
+                  first_name: dave
+                  last_name: perkin
+                  ssn: '666898300'
+                  state: MN
+                  zipcode: '55347'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"object\": \"application\",\n    \"url\": \"api/v1/application/\",\n    \"id\": \"d130f351-26a1-4698-9b64-92ae8c46c644\"\n}"
+              schema:
+                oneOf:
+                - type: object
+                  properties: {}
+                - type: object
+                  properties:
+                    object:
+                      type: string
+                      example: application
+                    url:
+                      type: string
+                      example: api/v1/application/
+                    id:
+                      type: string
+                      example: d130f351-26a1-4698-9b64-92ae8c46c644
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Application
+  /application/{id}:
+    get:
+      summary: Get an application
+      description: Get the basic info and status of an application. For example, you can use this api to check whether the application is approved, declined by the rules engine. The rules engine and pricing engine results are returned in the engine node of the api response.
+      operationId: get-an-application
+      parameters:
+      - name: id
+        in: path
+        description: This is the uuid id of the application.
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"object\": \"application\",\n    \"url\": \"/v1/application/2d30a4c7-8a8e-4de3-9718-71857993e357\",\n    \"result\": {\n        \"app_id\": \"2d30a4c7-8a8e-4de3-9718-71857993e357\",\n        \"lead_id\": \"\",\n        \"first_name\": \"David\",\n        \"last_name\": \"Perkins\",\n        \"email\": \"xxxx1@lendapi.com\",\n        \"address1\": \"8750 MEADOWVALE DR\",\n        \"address2\": \"\",\n        \"city\": \"EDEN PRAIRIE\",\n        \"state\": \"MN\",\n        \"zipcode\": \"55347\",\n        \"status\": \"Booked\",\n        \"engine\": {\n            \"decisions\": [\n            ],\n            \"offers\": [\n            ]\n        }\n    }\n}"
+              schema:
+                oneOf:
+                - type: object
+                  properties: {}
+                - type: object
+                  properties:
+                    object:
+                      type: string
+                      example: application
+                    url:
+                      type: string
+                      example: /v1/application/2d30a4c7-8a8e-4de3-9718-71857993e357
+                    result:
+                      type: object
+                      properties:
+                        app_id:
+                          type: string
+                          example: 2d30a4c7-8a8e-4de3-9718-71857993e357
+                        lead_id:
+                          type: string
+                          example: ''
+                        first_name:
+                          type: string
+                          example: David
+                        last_name:
+                          type: string
+                          example: Perkins
+                        email:
+                          type: string
+                          example: xxxx1@lendapi.com
+                        address1:
+                          type: string
+                          example: 8750 MEADOWVALE DR
+                        address2:
+                          type: string
+                          example: ''
+                        city:
+                          type: string
+                          example: EDEN PRAIRIE
+                        state:
+                          type: string
+                          example: MN
+                        zipcode:
+                          type: string
+                          example: '55347'
+                        status:
+                          type: string
+                          example: Booked
+                        engine:
+                          type: object
+                          properties:
+                            decisions:
+                              type: array
+                            offers:
+                              type: array
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Application
+  /application:
+    put:
+      description: ''
+      responses:
+        '200':
+          description: ''
+      parameters: []
+      operationId: put_application
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: 'This is the uuid id of the application, such as ''3f8b2c4e-7a91-4d6b-9c2e-5a1f0d8e6b73''. '
+                data:
+                  type: string
+                  format: json
+                  description: Use the json key value to update the application variables. For example, {"var_abc":100, "var_xyz":600}
+              required:
+              - id
+      tags:
+      - Application
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: AUTHORIZATION
+      x-default: Bearer your_api_key

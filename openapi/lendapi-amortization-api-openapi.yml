@@ -1,0 +1,286 @@
+openapi: 3.1.0
+info:
+  title: lendapi Amortization API
+  version: '1.0'
+servers:
+- url: https://app.lendapi.com/api/v1/
+security:
+- sec0: []
+tags:
+- name: Amortization
+paths:
+  /amortization/:
+    post:
+      summary: Amortization
+      description: This endpoint calculates and returns the amortization schedule for a loan based on the provided loan details. The amortization schedule breaks down each payment into principal and interest components over the life of the loan. APR and periodic_payment are also calculated.
+      operationId: lendapi-amortization
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - amount
+              - interest_rate
+              - term
+              - term_frequency
+              properties:
+                amount:
+                  type: number
+                  description: Loan Amount, this is the loan amount with two decimal points, for example 10000.12
+                  format: float
+                fee:
+                  type: number
+                  description: Application Fee. Will use 0 if empty
+                  format: float
+                interest_rate:
+                  type: number
+                  description: Loan Interest Rate in percentage. If interest rate is 12.50%, you shall enter 12.50
+                  format: float
+                term:
+                  type: integer
+                  description: The number of term per the term_frequency below
+                  format: int32
+                term_frequency:
+                  type: string
+                  description: Can be ‘monthly', 'semi-monthly', 'bi-weekly', 'weekly', 'quarterly’
+                disbursement_date:
+                  type: string
+                  description: Optional. Fund disbursement date, date format yyyy-MM-dd
+                first_payment_date:
+                  type: string
+                  description: Optional. First payment date, date format yyyy-MM-dd
+            examples:
+              Request Example:
+                value:
+                  amount: 14200
+                  fee: 1135
+                  term: 12
+                  term_frequency: monthly
+                  interest_rate: 32
+                  disbursement_date: '2025-12-04'
+                  first_payment_date: '2026-02-24'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value:
+                    object: amortization
+                    url: /v1/amortization/
+                    result:
+                      code: 1
+                      total_payments: 18933.63
+                      total_interests: 3598.63
+                      periodic_payment: 1577.81
+                      application_fee: 1135
+                      financial_charge: 4733.63
+                      interest_rate: 32
+                      apr: 44.2135
+                      amount: 14200
+                      term: 12
+                      term_frequency: monthly
+                      disbursement_date: '2025-12-04'
+                      first_payment_date: '2026-02-24'
+                      amortization:
+                      - period: 1
+                        date: '2026-02-24'
+                        periodic_payment: 1577.81
+                        interest: 1114.87
+                        principal: 462.94
+                        balance: 14872.06
+                        cumulative_interests: 1114.87
+                        unit_periods: 2.6666666666666665
+                      - period: 2
+                        date: '2026-03-24'
+                        periodic_payment: 1577.81
+                        interest: 396.59
+                        principal: 1181.22
+                        balance: 13690.84
+                        cumulative_interests: 1511.46
+                        unit_periods: 3.6666666666666665
+                      - period: 3
+                        date: '2026-04-24'
+                        periodic_payment: 1577.81
+                        interest: 365.09
+                        principal: 1212.72
+                        balance: 12478.12
+                        cumulative_interests: 1876.55
+                        unit_periods: 4.666666666666667
+                      - period: 4
+                        date: '2026-05-24'
+                        periodic_payment: 1577.81
+                        interest: 332.75
+                        principal: 1245.06
+                        balance: 11233.06
+                        cumulative_interests: 2209.3
+                        unit_periods: 5.666666666666667
+                      - period: 5
+                        date: '2026-06-24'
+                        periodic_payment: 1577.81
+                        interest: 299.55
+                        principal: 1278.26
+                        balance: 9954.8
+                        cumulative_interests: 2508.85
+                        unit_periods: 6.666666666666667
+                      - period: 6
+                        date: '2026-07-24'
+                        periodic_payment: 1577.81
+                        interest: 265.46
+                        principal: 1312.35
+                        balance: 8642.45
+                        cumulative_interests: 2774.31
+                        unit_periods: 7.666666666666667
+                      - period: 7
+                        date: '2026-08-24'
+                        periodic_payment: 1577.81
+                        interest: 230.47
+                        principal: 1347.34
+                        balance: 7295.11
+                        cumulative_interests: 3004.78
+                        unit_periods: 8.666666666666666
+                      - period: 8
+                        date: '2026-09-24'
+                        periodic_payment: 1577.81
+                        interest: 194.54
+                        principal: 1383.27
+                        balance: 5911.84
+                        cumulative_interests: 3199.32
+                        unit_periods: 9.666666666666666
+                      - period: 9
+                        date: '2026-10-24'
+                        periodic_payment: 1577.81
+                        interest: 157.65
+                        principal: 1420.16
+                        balance: 4491.68
+                        cumulative_interests: 3356.97
+                        unit_periods: 10.666666666666666
+                      - period: 10
+                        date: '2026-11-24'
+                        periodic_payment: 1577.81
+                        interest: 119.78
+                        principal: 1458.03
+                        balance: 3033.65
+                        cumulative_interests: 3476.75
+                        unit_periods: 11.666666666666666
+                      - period: 11
+                        date: '2026-12-24'
+                        periodic_payment: 1577.81
+                        interest: 80.9
+                        principal: 1496.91
+                        balance: 1536.74
+                        cumulative_interests: 3557.65
+                        unit_periods: 12.666666666666666
+                      - period: 12
+                        date: '2027-01-24'
+                        periodic_payment: 1577.72
+                        interest: 40.98
+                        principal: 1536.74
+                        balance: 0
+                        cumulative_interests: 3598.63
+                        unit_periods: 13.666666666666666
+              schema:
+                type: object
+                properties:
+                  object:
+                    type: string
+                    example: amortization
+                  url:
+                    type: string
+                    example: /v1/amortization/
+                  result:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                        example: 1
+                        default: 0
+                      amortization:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            period:
+                              type: integer
+                              example: 1
+                              default: 0
+                            periodic_payment:
+                              type: number
+                              example: 350.12
+                              default: 0
+                            principal:
+                              type: number
+                              example: 223.87
+                              default: 0
+                            interest:
+                              type: number
+                              example: 126.25
+                              default: 0
+                            balance:
+                              type: number
+                              example: 9876.13
+                              default: 0
+                            cumulative_interests:
+                              type: number
+                              example: 126.25
+                              default: 0
+                      total_payments:
+                        type: number
+                        example: 12604.31
+                        default: 0
+                      total_interests:
+                        type: number
+                        example: 2504.31
+                        default: 0
+                      periodic_payment:
+                        type: number
+                        example: 350.12
+                        default: 0
+                      interest_rate:
+                        type: integer
+                        example: 15
+                        default: 0
+                      apr:
+                        type: number
+                        example: 15.705847098039083
+                        default: 0
+                      amount:
+                        type: integer
+                        example: 10000
+                        default: 0
+                      fee:
+                        type: integer
+                        example: 100
+                        default: 0
+                      term:
+                        type: integer
+                        example: 36
+                        default: 0
+                      term_frequency:
+                        type: string
+                        example: monthly
+                      msg:
+                        type: string
+                        example: Success
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Amortization
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: AUTHORIZATION
+      x-default: Bearer your_api_key

@@ -1,0 +1,50 @@
+openapi: 3.1.0
+info:
+  title: lendapi Amortization Page Submit API
+  version: '1.0'
+servers:
+- url: https://app.lendapi.com/api/v1/
+security:
+- sec0: []
+tags:
+- name: Page Submit
+paths:
+  /page-submit/:
+    post:
+      description: ''
+      responses:
+        '200':
+          description: ''
+      parameters: []
+      operationId: post_page-submit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_referral:
+                  type: string
+                  description: This is the code in product studio.
+                label:
+                  type: string
+                  description: The tab name of the current application
+                data:
+                  type: string
+                  format: json
+                  description: The variable values for the given tab. Your variables shall match the product studio for the tab.
+                name:
+                  type: string
+              required:
+              - product_referral
+              - data
+              - label
+      tags:
+      - Page Submit
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: AUTHORIZATION
+      x-default: Bearer your_api_key

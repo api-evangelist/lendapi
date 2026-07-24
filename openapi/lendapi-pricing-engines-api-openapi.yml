@@ -1,0 +1,97 @@
+openapi: 3.1.0
+info:
+  title: lendapi Amortization Pricing Engines API
+  version: '1.0'
+servers:
+- url: https://app.lendapi.com/api/v1/
+security:
+- sec0: []
+tags:
+- name: Pricing Engines
+paths:
+  /pricing_engines:
+    get:
+      summary: List all Pricing Engines
+      description: Returns all Decision Trees under a Tenant
+      operationId: list-all-pricing-engines
+      parameters:
+      - name: start
+        in: query
+        description: index of record to start with
+        schema:
+          type: integer
+          format: int32
+      - name: size
+        in: query
+        description: max number of records to return
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"object\": \"decision\",\n    \"url\": \"/v1/decisions\",\n    \"has_more\": \"false\",\n    \"message\": \"\",\n    \"results\": [\n        {\n            \"id\": \"5c13c1d7-1463-41dd-b243-3f5a6910d43e\",\n            \"title\": \"Test tree\",\n            \"description\": \"test\",\n            \"default\": 1,\n            \"published\": true,\n            \"active\": true\n        },\n        {\n            \"id\": \"51638ae1-b7db-42d2-8c76-685259ba861c\",\n            \"title\": \"Test credit score\",\n            \"description\": \"credit score decision tree\",\n            \"default\": 1,\n            \"published\": true,\n            \"active\": true\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  object:
+                    type: string
+                    example: decision
+                  url:
+                    type: string
+                    example: /v1/decisions
+                  has_more:
+                    type: string
+                    example: 'false'
+                  message:
+                    type: string
+                    example: ''
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 5c13c1d7-1463-41dd-b243-3f5a6910d43e
+                        title:
+                          type: string
+                          example: Test tree
+                        description:
+                          type: string
+                          example: test
+                        default:
+                          type: integer
+                          example: 1
+                          default: 0
+                        published:
+                          type: boolean
+                          example: true
+                          default: true
+                        active:
+                          type: boolean
+                          example: true
+                          default: true
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Pricing Engines
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: AUTHORIZATION
+      x-default: Bearer your_api_key

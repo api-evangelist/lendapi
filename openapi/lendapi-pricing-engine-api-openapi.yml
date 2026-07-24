@@ -1,0 +1,196 @@
+openapi: 3.1.0
+info:
+  title: lendapi Amortization Pricing Engine API
+  version: '1.0'
+servers:
+- url: https://app.lendapi.com/api/v1/
+security:
+- sec0: []
+tags:
+- name: Pricing Engine
+paths:
+  /pricing_engine/{id}/versions/:
+    get:
+      summary: List Pricing Engine Versions
+      description: ''
+      operationId: list-pricing-engine-versions
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"object\": \"decision_version\",\n  \"url\": \"/v1/decision/:id/versions\",\n  \"default_version\": 0,\n  \"results\": [\n    {\n      \"version\": 0,\n      \"description\": \"string\"\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  object:
+                    type: string
+                    example: decision_version
+                  url:
+                    type: string
+                    example: /v1/decision/:id/versions
+                  default_version:
+                    type: integer
+                    example: 0
+                    default: 0
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        version:
+                          type: integer
+                          example: 0
+                          default: 0
+                        description:
+                          type: string
+                          example: string
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Pricing Engine
+  /pricing_engine/{id}/{engine_version}/params/:
+    get:
+      summary: List Pricing Engine Parameters
+      description: Returns all the parameters required for the specified Pricing Engine and its Version
+      operationId: list-pricing-engine-parameters
+      parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+      - name: engine_version
+        in: path
+        schema:
+          type: integer
+          format: int32
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"object\": \"decision_params\",\n  \"url\": \"/v1/decision/:id/:version/params\",\n  \"default_version\": 0,\n  \"results\": [\n    {\n      \"id\": 0,\n      \"name\": \"string\",\n      \"engine_name\": \"string\",\n      \"type\": \"string\",\n      \"description\": \"string\"\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  object:
+                    type: string
+                    example: decision_params
+                  url:
+                    type: string
+                    example: /v1/decision/:id/:version/params
+                  default_version:
+                    type: integer
+                    example: 0
+                    default: 0
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 0
+                          default: 0
+                        name:
+                          type: string
+                          example: string
+                        engine_name:
+                          type: string
+                          example: string
+                        type:
+                          type: string
+                          example: string
+                        description:
+                          type: string
+                          example: string
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Pricing Engine
+  /pricing_engine/{id}/run/:
+    post:
+      summary: Run Pricing Engine
+      description: ''
+      operationId: run-pricing-engine
+      parameters:
+      - name: id
+        in: path
+        description: This is the UUID of the decision tree
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - params
+              properties:
+                version:
+                  type: integer
+                  description: This is an optional field. When version param is not passed in, system uses the default version of the pricing engine to run. You can pass the specific version of the pricing engine to run if you choose to do so.
+                  format: int32
+                params:
+                  type: string
+                  description: parameters and values for the Pricing Engine, should be a dict
+                  format: json
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{'object': 'decision_run',\n 'url': '/v1/decision/:id/run/',\n 'result': {'code': 1,\n  'data': {'rule_id': int,\n   'app_id': int,\n   'status': int,\n   'chain': int,\n   'action': string},\n  'msg': string}}\n"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Pricing Engine
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: AUTHORIZATION
+      x-default: Bearer your_api_key

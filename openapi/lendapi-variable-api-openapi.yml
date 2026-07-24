@@ -1,0 +1,69 @@
+openapi: 3.1.0
+info:
+  title: lendapi Amortization Variable API
+  version: '1.0'
+servers:
+- url: https://app.lendapi.com/api/v1/
+security:
+- sec0: []
+tags:
+- name: Variable
+paths:
+  /variable/:
+    post:
+      summary: Create a Variable
+      description: Creates a new Variable for the Tenant
+      operationId: create-a-variable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - engine_name
+              - type
+              properties:
+                name:
+                  type: string
+                  description: Name of the variable
+                engine_name:
+                  type: string
+                  description: unique identifier for the variable to acquire and store values
+                type:
+                  type: integer
+                  description: 'type of values that the variable will handle. 1: numeric 2: string 3: boolean 5: date 6: list'
+                  format: int32
+                description:
+                  type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Variable
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: AUTHORIZATION
+      x-default: Bearer your_api_key
