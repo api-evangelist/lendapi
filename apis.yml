@@ -1,25 +1,398 @@
 aid: lendapi
 name: LendAPI
-description: LendAPI is a company surfaced as a portfolio company of techstars and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  LendAPI is a no-code / low-code loan origination and digital account-opening platform
+  for banks, credit unions, fintechs and embedded-finance programs. Its Product Studio
+  lets teams assemble a lending product -- application form, underwriting logic, pricing
+  and servicing -- without writing code, backed by a versioned decision engine, a
+  versioned pricing engine, DocAI document processing, UnderwriteAI and ARC AI scoring,
+  KYC/KYB verification, two-way SMS, virtual cards and the Embarc loan management
+  system. A marketplace of pre-integrated data partners covers credit bureaus, identity
+  verification, open banking, cash-flow analytics and income verification. The REST API
+  documented at developer.lendapi.com exposes the same primitives programmatically:
+  create and advance applications, run decisions and pricing, manage tenant-defined
+  variables and sub-tenants, pull bureau credit reports, compute amortization schedules
+  and score credit risk. LendAPI is SOC 2 Type 2 attested and serves use cases across
+  point-of-sale finance, buy-now-pay-later, auto lending, fix-and-flip, retail in-store
+  lending and embedded finance.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://files.readme.io/8262098-Logo_Black.png
 url: https://raw.githubusercontent.com/api-evangelist/lendapi/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - techstars
-x-tier: stub
-x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Lending
+- Loan Origination
+- Financial Services
+- Fintech
+- Embedded Finance
+- Underwriting
+- Decision Engine
+- Credit
+- Banking
+- Account Opening
+- KYC
+- KYB
+- Buy Now Pay Later
+- Point of Sale
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: lendapi:lendapi-amortization-api
+  name: LendAPI Amortization API
+  description: The Amortization API from LendAPI — 1 operation(s) for amortization.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Amortization
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-amortization-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
+- aid: lendapi:lendapi-application-api
+  name: LendAPI Application API
+  description: The Application API from LendAPI — 3 operation(s) for application.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Application
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-application-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
+- aid: lendapi:lendapi-credit-risk-api
+  name: LendAPI Credit Risk API
+  description: The Credit Risk API from LendAPI — 1 operation(s) for credit risk.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Credit Risk
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-credit-risk-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
+- aid: lendapi:lendapi-decision-api
+  name: LendAPI Decision API
+  description: The Decision API from LendAPI — 3 operation(s) for decision.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Decision
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-decision-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
+- aid: lendapi:lendapi-decisions-api
+  name: LendAPI Decisions API
+  description: The Decisions API from LendAPI — 1 operation(s) for decisions.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Decisions
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-decisions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
+- aid: lendapi:lendapi-get-app-credit-report-api
+  name: LendAPI Get App Credit Report API
+  description: The Get App Credit Report API from LendAPI — 1 operation(s) for get app credit report.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Get App Credit Report
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-get-app-credit-report-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
+- aid: lendapi:lendapi-outcomes-api
+  name: LendAPI Outcomes API
+  description: The Outcomes API from LendAPI — 1 operation(s) for outcomes.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Outcomes
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-outcomes-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
+- aid: lendapi:lendapi-page-submit-api
+  name: LendAPI Page Submit API
+  description: The Page Submit API from LendAPI — 1 operation(s) for page submit.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Page Submit
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-page-submit-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
+- aid: lendapi:lendapi-pricing-engine-api
+  name: LendAPI Pricing Engine API
+  description: The Pricing Engine API from LendAPI — 3 operation(s) for pricing engine.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Pricing Engine
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-pricing-engine-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
+- aid: lendapi:lendapi-pricing-engines-api
+  name: LendAPI Pricing Engines API
+  description: The Pricing Engines API from LendAPI — 1 operation(s) for pricing engines.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Pricing Engines
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-pricing-engines-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
+- aid: lendapi:lendapi-sub-tenant-api
+  name: LendAPI Sub Tenant API
+  description: The Sub Tenant API from LendAPI — 2 operation(s) for sub tenant.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Sub Tenant
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-sub-tenant-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
+- aid: lendapi:lendapi-sub-tenants-api
+  name: LendAPI Sub Tenants API
+  description: The Sub Tenants API from LendAPI — 1 operation(s) for sub tenants.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Sub Tenants
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-sub-tenants-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
+- aid: lendapi:lendapi-variable-api
+  name: LendAPI Variable API
+  description: The Variable API from LendAPI — 1 operation(s) for variable.
+  humanURL: https://developer.lendapi.com/reference/introduction
+  baseURL: https://app.lendapi.com/api/v1/
+  tags:
+  - Variable
+  properties:
+  - type: OpenAPI
+    url: openapi/lendapi-variable-api-openapi.yml
+  - type: Documentation
+    url: https://developer.lendapi.com/reference/introduction
+  - type: APIReference
+    url: https://developer.lendapi.com/reference/introduction
+  - type: Webhooks
+    url: https://developer.lendapi.com/reference/event-types
+  - type: ErrorCatalog
+    url: errors/lendapi-problem-types.yml
+  - type: DataModel
+    url: data-model/lendapi-data-model.yml
 common:
 - type: Website
   url: https://lendapi.com/
+- type: DeveloperPortal
+  url: https://www.lendapi.com/developers
+- type: Documentation
+  url: https://developer.lendapi.com/reference/introduction
+- type: APIReference
+  url: https://developer.lendapi.com/reference/introduction
+- type: GettingStarted
+  url: https://www.lendapi.com/academy
+- type: Support
+  url: https://www.lendapi.com/contact
+- type: Blog
+  url: https://www.lendapi.com/blog
+- type: GitHubOrganization
+  url: https://github.com/LendAPI
+- type: Pricing
+  url: https://www.lendapi.com/pricing
+- type: SignUp
+  url: https://app.lendapi.com/login/
+- type: TermsOfService
+  url: https://www.lendapi.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.lendapi.com/privacy-notice
+- type: Compliance
+  url: https://www.lendapi.com/blog/lendapi-achieves-soc-2-type-2-compliance
+- type: OpenAPI
+  url: openapi/lendapi-openapi.json
+- type: Overlay
+  url: overlays/lendapi-openapi-overlay.yaml
+- type: Authentication
+  url: authentication/lendapi-authentication.yml
+- type: Conventions
+  url: conventions/lendapi-conventions.yml
+- type: ErrorCatalog
+  url: errors/lendapi-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/lendapi-lifecycle.yml
+- type: Conformance
+  url: conformance/lendapi-conformance.yml
+- type: DataModel
+  url: data-model/lendapi-data-model.yml
+- type: Sandbox
+  url: sandbox/lendapi-sandbox.yml
+- type: Webhooks
+  url: asyncapi/lendapi-webhooks.yml
+- type: MCPServer
+  url: mcp/lendapi-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/lendapi-llms.txt
+- type: WellKnown
+  url: well-known/lendapi-well-known.yml
+- type: Packages
+  url: packages/lendapi-packages.yml
+- type: DomainSecurity
+  url: security/lendapi-domain-security.yml
+- type: Marketplace
+  url: https://www.lendapi.com/marketplace
+- type: Customers
+  url: https://www.lendapi.com/customers
+- type: Events
+  url: https://www.lendapi.com/events
+- type: Podcast
+  url: https://www.lendapi.com/podcast
+- type: LinkedIn
+  url: https://www.linkedin.com/company/lendapi/
+- type: Twitter
+  url: https://x.com/LendAPI
+- type: YouTube
+  url: https://www.youtube.com/@LendAPI
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
