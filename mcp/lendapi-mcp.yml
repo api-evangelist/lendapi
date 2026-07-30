@@ -1,0 +1,81 @@
+generated: '2026-07-19'
+method: searched
+status: published
+source: https://developer.lendapi.com/mcp
+server:
+  name: lendapi
+  transport: http
+  url: https://developer.lendapi.com/mcp
+  hosted_by: ReadMe
+  authentication: required
+  probe:
+    request: 'JSON-RPC initialize (protocolVersion 2025-06-18)'
+    status: 401
+    response: '{"jsonrpc":"2.0","error":{"code":-32001,"message":"Authorization required"},"id":null}'
+notes: LendAPI runs the ReadMe-hosted MCP server that fronts its developer portal.
+  The endpoint answers JSON-RPC and rejects unauthenticated initialize with -32001,
+  confirming a live server rather than a static page. Tool names below are DERIVED
+  from the published OpenAPI operations and are indicative of the surface the server
+  exposes; the authoritative tool list requires an authenticated session.
+tools_source: derived
+tools:
+- name: create-application
+  description: "Create application"
+  source_operation: openapi/lendapi-openapi.json#create-application
+- name: get-an-application
+  description: "Get an application"
+  source_operation: openapi/lendapi-openapi.json#get-an-application
+- name: get-an-application-1
+  description: "Copy of Get an application"
+  source_operation: openapi/lendapi-openapi.json#get-an-application-1
+- name: put_application
+  description: "put_application"
+  source_operation: openapi/lendapi-openapi.json#put_application
+- name: post_page-submit
+  description: "post_page-submit"
+  source_operation: openapi/lendapi-openapi.json#post_page-submit
+- name: create-a-variable
+  description: "Create a Variable"
+  source_operation: openapi/lendapi-openapi.json#create-a-variable
+- name: list-outcomes-by-action
+  description: "List Outcomes by Action"
+  source_operation: openapi/lendapi-openapi.json#list-outcomes-by-action
+- name: list-all-decision-trees
+  description: "List all Decisions"
+  source_operation: openapi/lendapi-openapi.json#list-all-decision-trees
+- name: list-decision-versions
+  description: "List Decision Versions"
+  source_operation: openapi/lendapi-openapi.json#list-decision-versions
+- name: list-decision-parameters
+  description: "List Decision Parameters"
+  source_operation: openapi/lendapi-openapi.json#list-decision-parameters
+- name: run-decision
+  description: "Run Decision"
+  source_operation: openapi/lendapi-openapi.json#run-decision
+- name: list-all-pricing-engines
+  description: "List all Pricing Engines"
+  source_operation: openapi/lendapi-openapi.json#list-all-pricing-engines
+- name: list-pricing-engine-versions
+  description: "List Pricing Engine Versions"
+  source_operation: openapi/lendapi-openapi.json#list-pricing-engine-versions
+- name: list-pricing-engine-parameters
+  description: "List Pricing Engine Parameters"
+  source_operation: openapi/lendapi-openapi.json#list-pricing-engine-parameters
+- name: run-pricing-engine
+  description: "Run Pricing Engine"
+  source_operation: openapi/lendapi-openapi.json#run-pricing-engine
+- name: list-all-sub-tenants
+  description: "List all Sub Tenants"
+  source_operation: openapi/lendapi-openapi.json#list-all-sub-tenants
+- name: get-sub-tenant
+  description: "Get Sub Tenant"
+  source_operation: openapi/lendapi-openapi.json#get-sub-tenant
+- name: create-sub-tenant
+  description: "Create Sub Tenant"
+  source_operation: openapi/lendapi-openapi.json#create-sub-tenant
+- name: lendapi-amortization
+  description: "Amortization"
+  source_operation: openapi/lendapi-openapi.json#lendapi-amortization
+- name: integrated-function
+  description: "integrated function"
+  source_operation: openapi/lendapi-openapi.json#integrated-function

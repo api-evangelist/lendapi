@@ -1,0 +1,44 @@
+generated: '2026-07-19'
+method: searched
+source: https://developer.lendapi.com/reference/introduction
+sandbox:
+  published: true
+  name: Test mode
+  isolation: >-
+    "This mode ensures that your requests do not impact your live data or interact
+    with actual production systems."
+  selection:
+    mechanism: api-key
+    detail: >-
+      "The mode in which your request operates, either live or test, is determined by
+      the API key used for authentication." There is no separate sandbox host and no
+      test path prefix -- the same base URL (https://app.lendapi.com/api/v1/) serves
+      both modes.
+  key_prefixes: not published
+  base_url: https://app.lendapi.com/api/v1/
+mode_signal:
+  field: live_mode
+  location: webhook event envelope
+  values: [true, false]
+  evidence: >-
+    The published example webhook payload carries "live_mode": false, so consumers can
+    tell test traffic from live traffic on the event side.
+  source: https://developer.lendapi.com/reference/example-response
+test_values:
+  published: false
+  notes: >-
+    LendAPI publishes NO magic test values -- no test SSNs, no test applicant
+    identities, no test bank accounts or cards, and no documented triggers for forcing
+    an approve / decline / manual-review outcome from the decision engine. Test-mode
+    behaviour is driven entirely by the tenant's own configured products, decision
+    trees and pricing engines rather than by fixed fixtures. Nothing is invented here.
+test_clock:
+  supported: not documented
+fixtures:
+  tooling: none published
+self_service:
+  signup_url: https://app.lendapi.com/login/
+  notes: >-
+    Access is commercial -- the pricing page routes to "Contact Us" for both the LOS
+    and Embarc LMS products, so test credentials are provisioned through sales rather
+    than by open self-service signup.

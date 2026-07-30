@@ -1,0 +1,48 @@
+generated: '2026-07-19'
+method: searched
+source: https://developer.lendapi.com/reference/introduction
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://app.lendapi.com/api/v1/
+  docs: https://developer.lendapi.com/reference/introduction
+  spec_version: '1.0'
+  spec_last_updated: '2026-03-10'
+  spec_source: >-
+    ReadMe apiDefinitions entry lendapi.json (type openapi, updated_at
+    2026-03-10T19:44:36Z), authored in ReadMe API Designer.
+environments:
+- name: test
+  selected_by: API key
+  isolated_from_live: true
+- name: live
+  selected_by: API key
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: not documented
+  deprecation_header: not documented
+  notes: >-
+    No deprecation or sunset policy is published, and no operation in the OpenAPI is
+    marked deprecated: true.
+deprecated_operations: []
+sla:
+  url: null
+  uptime_target: null
+  published: false
+status_page:
+  url: null
+  published: false
+  probe:
+  - {url: 'https://status.lendapi.com/', status: 503}
+  notes: >-
+    status.lendapi.com does not resolve to a status page (503). The ReadMe project
+    health_check provider is set to "none", so no status banner is wired to the
+    developer portal either. LendAPI publishes no public status page.
+changelog:
+  url: null
+  published: false
+  notes: >-
+    The ReadMe changelog module is disabled for this project and no dated API
+    changelog exists on lendapi.com. Company news is published as blog/press posts
+    at https://www.lendapi.com/blog rather than as a versioned API changelog.

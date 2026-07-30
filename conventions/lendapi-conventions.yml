@@ -1,0 +1,96 @@
+generated: '2026-07-19'
+method: searched
+source: https://developer.lendapi.com/reference/introduction
+sources:
+- https://developer.lendapi.com/reference/introduction
+- https://developer.lendapi.com/reference/example-response
+- openapi/lendapi-openapi.json
+architecture:
+  style: REST
+  resource_oriented: true
+  request_encoding: application/json
+  response_encoding: application/json
+  evidence: >-
+    "The LendAPI API is designed following the principles of REST. It employs a
+    resource-oriented approach with well-defined URLs for accessing various
+    resources. Requests are made using json-encoded request bodies, and responses
+    are returned in JSON format."
+authentication:
+  style: api-key
+  transport: header
+  header: AUTHORIZATION
+  value_format: 'Bearer <api_key>'
+  mode_selection: >-
+    The same header selects the environment -- a test-mode key keeps the request off
+    live data, a live key does not. Environment is a property of the KEY, not of the
+    host or a path prefix.
+  detail: authentication/lendapi-authentication.yml
+  scopes: none
+  scopes_notes: apiKey auth only; no OAuth 2.0 surface, so no scope model exists.
+idempotency:
+  supported: false
+  evidence: >-
+    No Idempotency-Key header, parameter, or retry-safety contract appears anywhere
+    in the published OpenAPI or the developer documentation. POST /application/,
+    POST /decision/{id}/run/ and POST /pricing_engine/{id}/run/ carry no
+    deduplication key, so retries are not documented as safe.
+pagination:
+  supported: true
+  style: offset
+  method: derived
+  parameters:
+  - name: start
+    in: query
+    role: zero-based offset of the first record to return
+  - name: size
+    in: query
+    role: number of records to return
+  applies_to:
+  - list-all-decision-trees
+  - list-all-pricing-engines
+  - list-all-sub-tenants
+  response_fields: not documented
+  notes: >-
+    Derived from the query parameters declared on the three list operations. LendAPI
+    publishes no prose pagination guide, no page-metadata envelope, and no cursor or
+    link-header alternative.
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /api/v1/
+  in_payload: >-
+    Webhook envelopes additionally carry an "api_version" field (observed value "v1").
+  detail: lifecycle/lendapi-lifecycle.yml
+error_envelope:
+  format: none
+  documented_status_codes: [200, 400]
+  shape: 'empty object schema; published example is "{}"'
+  detail: errors/lendapi-problem-types.yml
+webhook_envelope:
+  fields:
+  - api_version
+  - type
+  - live_mode
+  - data
+  detail: asyncapi/lendapi-webhooks.yml
+rate_limiting:
+  documented: false
+  headers: not documented
+  notes: LendAPI publishes no rate-limit policy, quota, or 429 response contract.
+request_tracing:
+  request_id_header: not documented
+field_expansion:
+  supported: not documented
+metadata:
+  supported: true
+  mechanism: >-
+    The application `data` field carries a JSON key/value bag of LendAPI Variables
+    (e.g. {"loan_amount": 2000, "loan_term": 12}). Variables are tenant-defined via
+    POST /variable/, which makes the request body extensible without a spec change.
+multi_tenancy:
+  model: tenant / sub-tenant
+  notes: >-
+    Every resource is scoped to a Tenant. Sub-Tenants are created under a parent
+    Tenant and may be login-bearing or headless (omit first_name, last_name, email
+    and password for a headless sub-tenant). An optional client_id carries the
+    caller's own external identifier for the sub-tenant.

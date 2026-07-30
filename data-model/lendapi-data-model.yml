@@ -1,0 +1,117 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/lendapi-openapi.json
+notes: >-
+  Entity graph derived from the published OpenAPI paths, path parameters, request-body
+  id-reference fields and the webhook envelope. LendAPI publishes no object-reference
+  page, so no id prefixes or canonical field lists are available beyond what the spec
+  declares.
+entities:
+- name: Tenant
+  description: >-
+    The top-level account. Every resource is scoped to a Tenant; the Tenant is implied
+    by the API key rather than passed as a parameter.
+  identifier: tenant_id
+  id_format: uuid
+  evidence: webhook envelope data.tenant_id
+- name: SubTenant
+  description: >-
+    A child account under a parent Tenant, either login-bearing or headless. Carries an
+    optional client_id holding the integrator's own external identifier.
+  identifier: tenant_id
+  operations: [list-all-sub-tenants, get-sub-tenant, create-sub-tenant]
+- name: Application
+  description: >-
+    A loan / account-opening application. The central entity: created with applicant
+    identity fields (first_name, last_name, email, address, ssn, birth_date, mobile), a
+    product_id, and a `data` bag of tenant-defined Variables. Its status is advanced by
+    the decision engine and reported over webhooks.
+  identifier: app_id
+  id_format: uuid
+  operations: [create-application, get-an-application, put_application, post_page-submit]
+  states:
+  - review
+  - approved
+  - declined
+  - request_docs
+  - processing
+  - booked
+  - funded
+- name: Product
+  description: >-
+    The lending product an Application is opened against. Referenced by product_id on
+    application create; no product CRUD is exposed in the public API.
+  identifier: product_id
+  id_format: int32
+- name: Variable
+  description: >-
+    A tenant-defined named data point used as input to decisions and pricing and
+    carried in the Application `data` key/value bag.
+  operations: [create-a-variable]
+- name: Decision
+  description: >-
+    A versioned decision tree evaluated against an Application or against parameters
+    supplied directly.
+  identifier: id
+  operations: [list-all-decision-trees, list-decision-versions, list-decision-parameters, run-decision]
+  versioned: true
+  version_key: decision_version
+- name: Outcome
+  description: The terminal result a Decision can produce, grouped under an Action.
+  operations: [list-outcomes-by-action]
+- name: PricingEngine
+  description: >-
+    A versioned pricing model that produces rate / term / payment output for an
+    Application.
+  identifier: id
+  operations: [list-all-pricing-engines, list-pricing-engine-versions, list-pricing-engine-parameters, run-pricing-engine]
+  versioned: true
+  version_key: engine_version
+- name: CreditReport
+  description: >-
+    The bureau credit report PDF attached to an Application, returned as a presigned S3
+    link valid for 30 minutes. Optional -- only when enabled for the tenant.
+  operations: [get-an-application-1]
+- name: AmortizationSchedule
+  description: >-
+    A computed payment schedule breaking each payment into principal and interest, plus
+    APR and periodic_payment. Calculated, not stored.
+  operations: [lendapi-amortization]
+- name: CreditRiskScore
+  description: >-
+    Subprime risk scores returned by a machine-learning scoring endpoint.
+  operations: [integrated-function]
+relationships:
+- from: SubTenant
+  to: Tenant
+  type: belongs_to
+  via: parent tenant (implied by API key)
+- from: Application
+  to: Tenant
+  type: belongs_to
+  via: tenant_id
+- from: Application
+  to: Product
+  type: belongs_to
+  via: product_id
+- from: Application
+  to: Variable
+  type: has_many
+  via: data
+- from: Application
+  to: CreditReport
+  type: has_one
+  via: app_id (get_app_credit_report/{id})
+- from: Decision
+  to: Outcome
+  type: has_many
+  via: action
+- from: Decision
+  to: Application
+  type: evaluated_against
+  via: run-decision inputs
+- from: PricingEngine
+  to: Application
+  type: evaluated_against
+  via: run-pricing-engine inputs
+render: null

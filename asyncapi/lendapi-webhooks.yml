@@ -1,0 +1,71 @@
+generated: '2026-07-19'
+method: searched
+type: Webhooks
+sources:
+- https://developer.lendapi.com/reference/event-types
+- https://developer.lendapi.com/reference/example-response
+asyncapi_published: false
+asyncapi_notes: >-
+  LendAPI publishes no AsyncAPI document. The event surface is documented in prose on
+  two developer-portal pages, captured faithfully below. Nothing here is generated --
+  the event list and the envelope are verbatim from the provider's own documentation.
+delivery:
+  mechanism: webhook
+  direction: outbound
+  configuration: >-
+    Webhook endpoints are configured per tenant in the LendAPI application; the
+    developer documentation does not publish a webhook-registration API.
+  signing: not documented
+  retries: not documented
+  ordering: not documented
+envelope:
+  fields:
+  - name: api_version
+    type: string
+    example: v1
+  - name: type
+    type: string
+    description: the event type, from the catalog below
+    example: application.booked
+  - name: live_mode
+    type: boolean
+    description: false for test-mode traffic, true for live traffic
+  - name: data
+    type: object
+    description: the resource detail; for application events, the application record
+  example: |
+    {
+      "api_version": "v1",
+      "type": "application.booked",
+      "live_mode": false,
+      "data": {
+        "app_id": "a3d63f54-5b69-46aa-af11-ec4a4797133e",
+        "tenant_id": "8199c002-0c26-46ec-8aaf-db487f39de1b1"
+      }
+    }
+event_count: 8
+events:
+- type: application.review
+  description: application is in credit manual review
+  resource: application
+- type: application.approved
+  description: application is approved by the decision engine
+  resource: application
+- type: application.declined
+  description: application is declined by the decision engine or staff team member
+  resource: application
+- type: application.request_docs
+  description: application is waiting for document uploads
+  resource: application
+- type: application.processing
+  description: application is in processing
+  resource: application
+- type: application.booked
+  description: application is booked
+  resource: application
+- type: application.funded
+  description: application is funded
+  resource: application
+- type: application.doc_ai_completed
+  description: DocAI completed for the application documents
+  resource: application

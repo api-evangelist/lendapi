@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/lendapi-openapi.json
+notes: >-
+  Packaged Agent Skills for LendAPI, generated from the provider's published OpenAPI
+  operations plus the conventions, webhook, sandbox and error artifacts in this repo.
+  Every operationId referenced below appears verbatim in
+  openapi/lendapi-openapi.json. LendAPI publishes no skills or AGENTS.md of its own
+  (the AGENTS.md in github.com/LendAPI/docs is an uncustomized Mintlify starter
+  template and was deliberately NOT harvested).
+skills:
+- file: lendapi-originate-application.md
+  name: Originate a loan application with LendAPI
+  api: openapi/lendapi-openapi.json
+  operations:
+  - create-application
+  - post_page-submit
+  - get-an-application
+  - put_application
+  - get-an-application-1
+- file: lendapi-run-decision-and-pricing.md
+  name: Run a LendAPI decision tree and pricing engine
+  api: openapi/lendapi-openapi.json
+  operations:
+  - list-all-decision-trees
+  - list-decision-versions
+  - list-decision-parameters
+  - run-decision
+  - list-outcomes-by-action
+  - list-all-pricing-engines
+  - list-pricing-engine-versions
+  - list-pricing-engine-parameters
+  - run-pricing-engine
+  - create-a-variable
+- file: lendapi-manage-sub-tenants.md
+  name: Manage LendAPI sub-tenants and loan math
+  api: openapi/lendapi-openapi.json
+  operations:
+  - list-all-sub-tenants
+  - get-sub-tenant
+  - create-sub-tenant
+  - lendapi-amortization
+  - integrated-function

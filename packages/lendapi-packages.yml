@@ -1,0 +1,18 @@
+generated: '2026-07-19'
+method: searched
+source: registry searches on npm, PyPI, RubyGems, crates.io, and the LendAPI GitHub org
+packages: []
+official_sdk_count: 0
+searched:
+- {registry: npm, query: lendapi, result: no matching package}
+- {registry: pypi, query: lendapi, result: 404}
+- {registry: pypi, query: lend-api, result: 404}
+- {registry: rubygems, query: lendapi, result: 404}
+- {registry: crates.io, query: lendapi, result: no first-party crate}
+- {registry: github, org: 'https://github.com/LendAPI', result: 'one public repo (docs), no client libraries'}
+notes: >-
+  LendAPI ships NO first-party client libraries in any public package registry. Its
+  GitHub organization holds a single public repo (docs) which is an uncustomized
+  Mintlify starter template, not LendAPI documentation and not an SDK. Integration is
+  raw HTTP against https://app.lendapi.com/api/v1/ with an AUTHORIZATION header. No
+  `SDKs` pointer is emitted because no SDK exists.

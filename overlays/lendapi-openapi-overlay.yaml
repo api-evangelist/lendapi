@@ -1,0 +1,58 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for LendAPI
+  version: 1.0.0
+x-generated: '2026-07-19'
+x-method: generated
+x-source: openapi/lendapi-openapi.json
+extends: openapi/lendapi-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-slug: lendapi
+    x-apievangelist-harvest: >-
+      Reassembled from the per-operation OpenAPI 3.1 fragments LendAPI publishes on
+      each developer.lendapi.com/reference/*.md page. LendAPI exposes no single
+      downloadable definition.
+    x-apievangelist-artifacts:
+      conventions: conventions/lendapi-conventions.yml
+      errors: errors/lendapi-problem-types.yml
+      lifecycle: lifecycle/lendapi-lifecycle.yml
+      authentication: authentication/lendapi-authentication.yml
+      webhooks: asyncapi/lendapi-webhooks.yml
+      data_model: data-model/lendapi-data-model.yml
+      sandbox: sandbox/lendapi-sandbox.yml
+      mcp: mcp/lendapi-mcp.yml
+      skills: skills/_index.yml
+- target: $.info
+  update:
+    description: >-
+      LendAPI is a no-code / low-code loan origination and account-opening platform.
+      This REST API drives the same primitives the Product Studio exposes: create and
+      advance applications, run versioned decision trees and pricing engines, manage
+      tenant-defined variables and sub-tenants, pull bureau credit reports, compute
+      amortization schedules, and score credit risk. Authentication is an API key in
+      the AUTHORIZATION header formatted as a bearer token; the key also selects test
+      versus live mode.
+- target: $.servers[0]
+  update:
+    description: Production host. Test mode is selected by the API key, not by the host.
+- target: $.components.securitySchemes.sec0
+  update:
+    description: >-
+      API key sent in the AUTHORIZATION header as "Bearer <api_key>". A test-mode key
+      keeps requests off live data; a live key does not.
+- target: $.paths['/decisions/'].get.parameters[?(@.name=='start')]
+  update:
+    x-apievangelist-pagination: offset
+- target: $.paths['/decisions/'].get.parameters[?(@.name=='size')]
+  update:
+    x-apievangelist-pagination: page-size
+x-gaps-not-patched:
+- No 401/403/404/429/5xx responses are declared on any operation.
+- Error bodies are empty object schemas; no RFC 9457 problem+json.
+- No idempotency key on any write operation.
+- Two operations (put_application, post_page-submit) carry no summary.
+- get-an-application-1 is titled "Copy of Get an application" -- an API Designer
+  artifact left in the published definition.
+- No components.schemas reuse; every request body is inlined.

@@ -1,0 +1,38 @@
+{
+  "provider": "lendapi",
+  "sources": [
+    "lendapi-amortization-api-openapi.yml",
+    "lendapi-application-api-openapi.yml",
+    "lendapi-credit-risk-api-openapi.yml",
+    "lendapi-decision-api-openapi.yml",
+    "lendapi-decisions-api-openapi.yml",
+    "lendapi-get-app-credit-report-api-openapi.yml",
+    "lendapi-outcomes-api-openapi.yml",
+    "lendapi-page-submit-api-openapi.yml",
+    "lendapi-pricing-engine-api-openapi.yml",
+    "lendapi-pricing-engines-api-openapi.yml",
+    "lendapi-sub-tenant-api-openapi.yml",
+    "lendapi-sub-tenants-api-openapi.yml",
+    "lendapi-variable-api-openapi.yml"
+  ],
+  "outputs": [
+    "lendapi-amortization-api-openapi.yml",
+    "lendapi-application-api-openapi.yml",
+    "lendapi-credit-risk-api-openapi.yml",
+    "lendapi-decision-api-openapi.yml",
+    "lendapi-decisions-api-openapi.yml",
+    "lendapi-get-app-credit-report-api-openapi.yml",
+    "lendapi-outcomes-api-openapi.yml",
+    "lendapi-page-submit-api-openapi.yml",
+    "lendapi-pricing-engine-api-openapi.yml",
+    "lendapi-pricing-engines-api-openapi.yml",
+    "lendapi-sub-tenant-api-openapi.yml",
+    "lendapi-sub-tenants-api-openapi.yml",
+    "lendapi-variable-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

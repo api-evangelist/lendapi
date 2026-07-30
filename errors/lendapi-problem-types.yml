@@ -1,0 +1,148 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/lendapi-openapi.json
+format: none
+format_notes: >-
+  LendAPI does not use RFC 9457 problem+json. Every documented error response is a
+  bare application/json 400 with an empty object schema and an example of "{}".
+  There is no published error-code registry, no error `type` URIs, and no
+  machine-readable error taxonomy. The only structured failure semantics LendAPI
+  publishes are application DECISION outcomes (application.declined /
+  application.review), which are delivered as webhook events rather than as HTTP
+  errors -- see asyncapi/lendapi-webhooks.yml.
+coverage:
+  operations_total: 20
+  operations_with_4xx: 18
+  operations_with_5xx: 0
+problems:
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#create-application
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#get-an-application
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#get-an-application-1
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#create-a-variable
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#list-outcomes-by-action
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#list-all-decision-trees
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#list-decision-versions
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#list-decision-parameters
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#run-decision
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#list-all-pricing-engines
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#list-pricing-engine-versions
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#list-pricing-engine-parameters
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#run-pricing-engine
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#list-all-sub-tenants
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#get-sub-tenant
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#create-sub-tenant
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#lendapi-amortization
+- status: 400
+  title: Bad Request
+  description: >-
+    Generic 400 declared by the operation. The published spec ships an empty
+    object schema for the error body, so no discriminated error type,
+    code, or remediation is documented.
+  source_operation: openapi/lendapi-openapi.json#integrated-function
+gaps:
+- No 401/403 responses documented despite a required API key.
+- No 404 documented on any of the by-id GET operations.
+- No 429 documented; no rate-limit contract is published.
+- No 5xx documented on any operation.

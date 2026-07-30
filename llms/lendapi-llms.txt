@@ -1,0 +1,28 @@
+# LendAPI Documentation
+
+> LendAPI streamlines account opening and loan origination with a secure, flexible platform for effortless digital onboarding.
+
+## API Reference
+- [Introduction](https://developer.lendapi.com/reference/introduction.md): Streamlining Future Lending
+- [Create application](https://developer.lendapi.com/reference/create-application.md): The api can be used to create an application.
+- [Get an application](https://developer.lendapi.com/reference/get-an-application.md): Get the basic info and status of an application. For example, you can use this api to check whether the application is approved, declined by the rules engine. The rules engine and pricing engine results are returned in the engine node of the api response.
+- [Get credit report PDF of an application](https://developer.lendapi.com/reference/get-an-application-1.md): Return the application credit report PDF in S3 link if this is turned on. For example, this api returns the Equifax Credit Report PDF.  The S3 link is valid for 30 minutes.
+- [Update an application](https://developer.lendapi.com/reference/update-an-application.md)
+- [Page submit](https://developer.lendapi.com/reference/page-submit.md): Product Studio includes a built-in frontend UI. If you’re building your own frontend, use the page-submit API to submit pages.
+- [Create a Variable](https://developer.lendapi.com/reference/create-a-variable.md): Creates a new Variable for the Tenant
+- [List Outcomes by Action](https://developer.lendapi.com/reference/list-outcomes-by-action.md): Returns all Outcome under a Tenant tied to a specific Action
+- [List all Decisions](https://developer.lendapi.com/reference/list-all-decision-trees.md): Returns all Decision Trees under a Tenant
+- [List Decision Versions](https://developer.lendapi.com/reference/list-decision-versions.md)
+- [List Decision Parameters](https://developer.lendapi.com/reference/list-decision-parameters.md): Returns all the parameters required for the specified Decision and its Version
+- [Run Decision](https://developer.lendapi.com/reference/run-decision.md)
+- [List all Pricing Engines](https://developer.lendapi.com/reference/list-all-pricing-engines.md): Returns all Decision Trees under a Tenant
+- [List Pricing Engine Versions](https://developer.lendapi.com/reference/list-pricing-engine-versions.md)
+- [List Pricing Engine Parameters](https://developer.lendapi.com/reference/list-pricing-engine-parameters.md): Returns all the parameters required for the specified Pricing Engine and its Version
+- [Run Pricing Engine](https://developer.lendapi.com/reference/run-pricing-engine.md)
+- [List all Sub Tenants](https://developer.lendapi.com/reference/list-all-sub-tenants.md): List all Sub Tenants under the Parent Tenant
+- [Get Sub Tenant](https://developer.lendapi.com/reference/get-sub-tenant.md): This API returns the information related to the sub tenant.
+- [Create Sub Tenant](https://developer.lendapi.com/reference/create-sub-tenant.md): Creates a new Sub Tenant for the Tenant. client_id is an optional param which represents the external id of the sub-tenant. There are two types of Sub-Tenants: with login or without login. If the Sub Tenant doesn't need to login, ignore first_name, last_name, email and password fields.
+- [Amortization](https://developer.lendapi.com/reference/lendapi-amortization.md): This endpoint calculates and returns the amortization schedule for a loan based on the provided loan details. The amortization schedule breaks down each payment into principal and interest components over the life of the loan. APR and periodic_payment are also calculated.
+- [Event Types](https://developer.lendapi.com/reference/event-types.md): See the full list of event types that we send to your webhook.
+- [Example Response](https://developer.lendapi.com/reference/example-response.md)
+- [integrated function](https://developer.lendapi.com/reference/integrated-function.md): This is a machine learning restful api which returns the subprime risk scores.
