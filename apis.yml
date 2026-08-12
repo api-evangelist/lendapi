@@ -346,7 +346,7 @@ common:
 - type: Compliance
   url: https://www.lendapi.com/blog/lendapi-achieves-soc-2-type-2-compliance
 - type: OpenAPI
-  url: openapi/lendapi-openapi.json
+  url: openapi/_original/lendapi-openapi.json
 - type: Overlay
   url: overlays/lendapi-openapi-overlay.yaml
 - type: Authentication
