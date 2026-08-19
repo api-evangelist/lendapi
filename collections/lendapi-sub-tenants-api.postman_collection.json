@@ -1,0 +1,201 @@
+{
+  "item": [
+    {
+      "id": "1dc8d664-8c56-47f6-80e7-c6950ce8e8dc",
+      "name": "Sub Tenants",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "384330d5-8740-4edd-88e1-25fd0a446f04",
+          "name": "List all Sub Tenants",
+          "request": {
+            "name": "List all Sub Tenants",
+            "description": {
+              "content": "List all Sub Tenants under the Parent Tenant",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sub_tenants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>",
+                  "description": "index of record to start with"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "max number of records to return"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a24e780-1bec-4b23-9f22-d9596c5ad9ba",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sub_tenants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4f24caf-3d3d-487d-880d-69f261d3c9b0",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sub_tenants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.lendapi.com/api/v1/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AUTHORIZATION"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d1aff66e-5bc5-4cec-bad8-3409bd201212",
+    "name": "lendapi Amortization Sub Tenants API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

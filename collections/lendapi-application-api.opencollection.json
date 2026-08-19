@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization Application API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Application",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.lendapi.com/api/v1/application/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The api can be used to create an application."
+        },
+        {
+          "info": {
+            "name": "Get an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.lendapi.com/api/v1/application/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "This is the uuid id of the application."
+              }
+            ]
+          },
+          "docs": "Get the basic info and status of an application. For example, you can use this api to check whether the application is approved, declined by the rules engine. The rules engine and pricing engine results are returned in the engine node of the api response."
+        },
+        {
+          "info": {
+            "name": "put_application",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.lendapi.com/api/v1/application",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

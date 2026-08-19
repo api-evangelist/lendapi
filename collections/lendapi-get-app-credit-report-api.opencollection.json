@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization Get App Credit Report API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get App Credit Report",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Copy of Get an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.lendapi.com/api/v1/get_app_credit_report/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "This is the uuid id of the application."
+              }
+            ]
+          },
+          "docs": "Get the basic info and status of an application. For example, you can use this api to check whether the application is approved, declined by the rules engine. The rules engine and pricing engine results are returned in the engine node of the api response."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization Pricing Engine API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pricing Engine",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Pricing Engine Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.lendapi.com/api/v1/pricing_engine/:id/versions/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Pricing Engine Versions"
+        },
+        {
+          "info": {
+            "name": "List Pricing Engine Parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.lendapi.com/api/v1/pricing_engine/:id/:engine_version/params/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "engine_version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns all the parameters required for the specified Pricing Engine and its Version"
+        },
+        {
+          "info": {
+            "name": "Run Pricing Engine",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.lendapi.com/api/v1/pricing_engine/:id/run/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "This is the UUID of the decision tree"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run Pricing Engine"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

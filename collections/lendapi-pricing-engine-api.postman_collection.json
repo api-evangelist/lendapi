@@ -1,0 +1,564 @@
+{
+  "item": [
+    {
+      "id": "c328db14-989d-4b3d-a280-79a9e7d33246",
+      "name": "Pricing Engine",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "38c0600e-3602-4f01-ae06-315c20740fdf",
+          "name": "List Pricing Engine Versions",
+          "request": {
+            "name": "List Pricing Engine Versions",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricing_engine",
+                ":id",
+                "versions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "846150de-24e3-4eaa-ae6d-25d1d2087cdd",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing_engine",
+                    ":id",
+                    "versions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"object\\\": \\\"decision_version\\\",\\n  \\\"url\\\": \\\"/v1/decision/:id/versions\\\",\\n  \\\"default_version\\\": 0,\\n  \\\"results\\\": [\\n    {\\n      \\\"version\\\": 0,\\n      \\\"description\\\": \\\"string\\\"\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8375493a-ca2b-40fa-8a6d-5013593ba1b8",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing_engine",
+                    ":id",
+                    "versions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dbfdbce4-3f2a-44f1-8325-d4b3d360d679",
+          "name": "List Pricing Engine Parameters",
+          "request": {
+            "name": "List Pricing Engine Parameters",
+            "description": {
+              "content": "Returns all the parameters required for the specified Pricing Engine and its Version",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricing_engine",
+                ":id",
+                ":engine_version",
+                "params",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "engine_version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9b9d72c-b3bd-4098-b2bb-46c2ae43f9eb",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing_engine",
+                    ":id",
+                    ":engine_version",
+                    "params",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "engine_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"object\\\": \\\"decision_params\\\",\\n  \\\"url\\\": \\\"/v1/decision/:id/:version/params\\\",\\n  \\\"default_version\\\": 0,\\n  \\\"results\\\": [\\n    {\\n      \\\"id\\\": 0,\\n      \\\"name\\\": \\\"string\\\",\\n      \\\"engine_name\\\": \\\"string\\\",\\n      \\\"type\\\": \\\"string\\\",\\n      \\\"description\\\": \\\"string\\\"\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4afaa305-3f53-4ca4-9ba4-1cb6f4c74691",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing_engine",
+                    ":id",
+                    ":engine_version",
+                    "params",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "engine_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ee8a254-6a1f-4beb-9839-7fc03207bf62",
+          "name": "Run Pricing Engine",
+          "request": {
+            "name": "Run Pricing Engine",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricing_engine",
+                ":id",
+                "run",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) This is the UUID of the decision tree"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"params\": \"<json>\",\n  \"version\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "82b9e120-e26b-48e9-8b60-3f9fdaf5e392",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing_engine",
+                    ":id",
+                    "run",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) This is the UUID of the decision tree"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"params\": \"<json>\",\n  \"version\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{'object': 'decision_run',\\n 'url': '/v1/decision/:id/run/',\\n 'result': {'code': 1,\\n  'data': {'rule_id': int,\\n   'app_id': int,\\n   'status': int,\\n   'chain': int,\\n   'action': string},\\n  'msg': string}}\\n\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b9f659c-003e-4618-9eb0-daf5b34f3ab2",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing_engine",
+                    ":id",
+                    "run",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) This is the UUID of the decision tree"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"params\": \"<json>\",\n  \"version\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.lendapi.com/api/v1/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AUTHORIZATION"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c0fc4583-1d1d-43fa-a98d-6a7b3a089c19",
+    "name": "lendapi Amortization Pricing Engine API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

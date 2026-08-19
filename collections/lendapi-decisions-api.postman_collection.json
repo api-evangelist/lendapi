@@ -1,0 +1,204 @@
+{
+  "item": [
+    {
+      "id": "bc1da871-7d83-45d2-8fe7-f117133d952b",
+      "name": "Decisions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "50df2c06-8395-4b66-acf7-64e860cc296e",
+          "name": "List all Decisions",
+          "request": {
+            "name": "List all Decisions",
+            "description": {
+              "content": "Returns all Decision Trees under a Tenant",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "decisions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>",
+                  "description": "index of record to start with"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<string>",
+                  "description": "max number of records to return"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7433c7f-71d6-4290-a394-ff841432628b",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "decisions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"object\\\": \\\"decision\\\",\\n    \\\"url\\\": \\\"/v1/decisions\\\",\\n    \\\"has_more\\\": \\\"false\\\",\\n    \\\"message\\\": \\\"\\\",\\n    \\\"results\\\": [\\n        {\\n            \\\"id\\\": \\\"5c13c1d7-1463-41dd-b243-3f5a6910d43e\\\",\\n            \\\"title\\\": \\\"Test tree\\\",\\n            \\\"description\\\": \\\"test\\\",\\n            \\\"default\\\": 1,\\n            \\\"published\\\": true,\\n            \\\"active\\\": true\\n        },\\n        {\\n            \\\"id\\\": \\\"51638ae1-b7db-42d2-8c76-685259ba861c\\\",\\n            \\\"title\\\": \\\"Test credit score\\\",\\n            \\\"description\\\": \\\"credit score decision tree\\\",\\n            \\\"default\\\": 1,\\n            \\\"published\\\": true,\\n            \\\"active\\\": true\\n        }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3ec8521-b2be-42b8-a14a-3f44e6039f26",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "decisions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.lendapi.com/api/v1/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AUTHORIZATION"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "81b75b64-07aa-42bc-b37c-62b7e75c6ea4",
+    "name": "lendapi Amortization Decisions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

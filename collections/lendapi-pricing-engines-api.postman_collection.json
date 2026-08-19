@@ -1,0 +1,201 @@
+{
+  "item": [
+    {
+      "id": "9adf8626-cae5-4b0a-a6e4-26e043a98bd7",
+      "name": "Pricing Engines",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0d19c53f-a506-4300-907e-e0a837a91025",
+          "name": "List all Pricing Engines",
+          "request": {
+            "name": "List all Pricing Engines",
+            "description": {
+              "content": "Returns all Decision Trees under a Tenant",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pricing_engines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>",
+                  "description": "index of record to start with"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<string>",
+                  "description": "max number of records to return"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20908ad6-9861-49ab-b195-040b5a1d07d7",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing_engines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"object\\\": \\\"decision\\\",\\n    \\\"url\\\": \\\"/v1/decisions\\\",\\n    \\\"has_more\\\": \\\"false\\\",\\n    \\\"message\\\": \\\"\\\",\\n    \\\"results\\\": [\\n        {\\n            \\\"id\\\": \\\"5c13c1d7-1463-41dd-b243-3f5a6910d43e\\\",\\n            \\\"title\\\": \\\"Test tree\\\",\\n            \\\"description\\\": \\\"test\\\",\\n            \\\"default\\\": 1,\\n            \\\"published\\\": true,\\n            \\\"active\\\": true\\n        },\\n        {\\n            \\\"id\\\": \\\"51638ae1-b7db-42d2-8c76-685259ba861c\\\",\\n            \\\"title\\\": \\\"Test credit score\\\",\\n            \\\"description\\\": \\\"credit score decision tree\\\",\\n            \\\"default\\\": 1,\\n            \\\"published\\\": true,\\n            \\\"active\\\": true\\n        }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8646981b-87dc-45ca-b470-0b618a6b2616",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pricing_engines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.lendapi.com/api/v1/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AUTHORIZATION"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1bed12ec-4a25-4fbe-aff5-a77f1927a2f4",
+    "name": "lendapi Amortization Pricing Engines API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

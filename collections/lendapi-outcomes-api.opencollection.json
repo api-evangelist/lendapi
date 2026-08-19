@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization Outcomes API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Outcomes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Outcomes by Action",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.lendapi.com/api/v1/outcomes/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns all Outcome under a Tenant tied to a specific Action"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

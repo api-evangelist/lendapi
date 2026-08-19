@@ -1,0 +1,202 @@
+{
+  "item": [
+    {
+      "id": "1844bc79-0ddc-4674-a305-d1ace9d694eb",
+      "name": "Amortization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9657710d-b9a3-4e29-a5cd-94d64f07a28c",
+          "name": "Amortization",
+          "request": {
+            "name": "Amortization",
+            "description": {
+              "content": "This endpoint calculates and returns the amortization schedule for a loan based on the provided loan details. The amortization schedule breaks down each payment into principal and interest components over the life of the loan. APR and periodic_payment are also calculated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "amortization",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<float>\",\n  \"interest_rate\": \"<float>\",\n  \"term\": \"<integer>\",\n  \"term_frequency\": \"<string>\",\n  \"fee\": \"<float>\",\n  \"disbursement_date\": \"<string>\",\n  \"first_payment_date\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b5df6ab9-d53d-45e6-914a-92c696dfee14",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "amortization",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 14200,\n  \"fee\": 1135,\n  \"term\": 12,\n  \"term_frequency\": \"monthly\",\n  \"interest_rate\": 32,\n  \"disbursement_date\": \"2025-12-04\",\n  \"first_payment_date\": \"2026-02-24\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"amortization\",\n  \"url\": \"/v1/amortization/\",\n  \"result\": {\n    \"code\": 1,\n    \"total_payments\": 18933.63,\n    \"total_interests\": 3598.63,\n    \"periodic_payment\": 1577.81,\n    \"application_fee\": 1135,\n    \"financial_charge\": 4733.63,\n    \"interest_rate\": 32,\n    \"apr\": 44.2135,\n    \"amount\": 14200,\n    \"term\": 12,\n    \"term_frequency\": \"monthly\",\n    \"disbursement_date\": \"2025-12-04\",\n    \"first_payment_date\": \"2026-02-24\",\n    \"amortization\": [\n      {\n        \"period\": 1,\n        \"date\": \"2026-02-24\",\n        \"periodic_payment\": 1577.81,\n        \"interest\": 1114.87,\n        \"principal\": 462.94,\n        \"balance\": 14872.06,\n        \"cumulative_interests\": 1114.87,\n        \"unit_periods\": 2.6666666666666665\n      },\n      {\n        \"period\": 2,\n        \"date\": \"2026-03-24\",\n        \"periodic_payment\": 1577.81,\n        \"interest\": 396.59,\n        \"principal\": 1181.22,\n        \"balance\": 13690.84,\n        \"cumulative_interests\": 1511.46,\n        \"unit_periods\": 3.6666666666666665\n      },\n      {\n        \"period\": 3,\n        \"date\": \"2026-04-24\",\n        \"periodic_payment\": 1577.81,\n        \"interest\": 365.09,\n        \"principal\": 1212.72,\n        \"balance\": 12478.12,\n        \"cumulative_interests\": 1876.55,\n        \"unit_periods\": 4.666666666666667\n      },\n      {\n        \"period\": 4,\n        \"date\": \"2026-05-24\",\n        \"periodic_payment\": 1577.81,\n        \"interest\": 332.75,\n        \"principal\": 1245.06,\n        \"balance\": 11233.06,\n        \"cumulative_interests\": 2209.3,\n        \"unit_periods\": 5.666666666666667\n      },\n      {\n        \"period\": 5,\n        \"date\": \"2026-06-24\",\n        \"periodic_payment\": 1577.81,\n        \"interest\": 299.55,\n        \"principal\": 1278.26,\n        \"balance\": 9954.8,\n        \"cumulative_interests\": 2508.85,\n        \"unit_periods\": 6.666666666666667\n      },\n      {\n        \"period\": 6,\n        \"date\": \"2026-07-24\",\n        \"periodic_payment\": 1577.81,\n        \"interest\": 265.46,\n        \"principal\": 1312.35,\n        \"balance\": 8642.45,\n        \"cumulative_interests\": 2774.31,\n        \"unit_periods\": 7.666666666666667\n      },\n      {\n        \"period\": 7,\n        \"date\": \"2026-08-24\",\n        \"periodic_payment\": 1577.81,\n        \"interest\": 230.47,\n        \"principal\": 1347.34,\n        \"balance\": 7295.11,\n        \"cumulative_interests\": 3004.78,\n        \"unit_periods\": 8.666666666666666\n      },\n      {\n        \"period\": 8,\n        \"date\": \"2026-09-24\",\n        \"periodic_payment\": 1577.81,\n        \"interest\": 194.54,\n        \"principal\": 1383.27,\n        \"balance\": 5911.84,\n        \"cumulative_interests\": 3199.32,\n        \"unit_periods\": 9.666666666666666\n      },\n      {\n        \"period\": 9,\n        \"date\": \"2026-10-24\",\n        \"periodic_payment\": 1577.81,\n        \"interest\": 157.65,\n        \"principal\": 1420.16,\n        \"balance\": 4491.68,\n        \"cumulative_interests\": 3356.97,\n        \"unit_periods\": 10.666666666666666\n      },\n      {\n        \"period\": 10,\n        \"date\": \"2026-11-24\",\n        \"periodic_payment\": 1577.81,\n        \"interest\": 119.78,\n        \"principal\": 1458.03,\n        \"balance\": 3033.65,\n        \"cumulative_interests\": 3476.75,\n        \"unit_periods\": 11.666666666666666\n      },\n      {\n        \"period\": 11,\n        \"date\": \"2026-12-24\",\n        \"periodic_payment\": 1577.81,\n        \"interest\": 80.9,\n        \"principal\": 1496.91,\n        \"balance\": 1536.74,\n        \"cumulative_interests\": 3557.65,\n        \"unit_periods\": 12.666666666666666\n      },\n      {\n        \"period\": 12,\n        \"date\": \"2027-01-24\",\n        \"periodic_payment\": 1577.72,\n        \"interest\": 40.98,\n        \"principal\": 1536.74,\n        \"balance\": 0,\n        \"cumulative_interests\": 3598.63,\n        \"unit_periods\": 13.666666666666666\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "265ed8aa-bc4e-48b9-97fe-9aecae176ff7",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "amortization",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 14200,\n  \"fee\": 1135,\n  \"term\": 12,\n  \"term_frequency\": \"monthly\",\n  \"interest_rate\": 32,\n  \"disbursement_date\": \"2025-12-04\",\n  \"first_payment_date\": \"2026-02-24\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.lendapi.com/api/v1/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AUTHORIZATION"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "744285f8-248e-491a-a2a7-e88aa6225156",
+    "name": "lendapi Amortization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

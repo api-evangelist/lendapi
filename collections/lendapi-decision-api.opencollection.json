@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization Decision API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Decision",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Decision Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.lendapi.com/api/v1/decision/:id/versions/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Decision Versions"
+        },
+        {
+          "info": {
+            "name": "List Decision Parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.lendapi.com/api/v1/decision/:id/:decision_version/params/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "decision_version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns all the parameters required for the specified Decision and its Version"
+        },
+        {
+          "info": {
+            "name": "Run Decision",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.lendapi.com/api/v1/decision/:id/run/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "This is the UUID of the decision tree"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run Decision"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

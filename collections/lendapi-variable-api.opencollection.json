@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization Variable API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Variable",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Variable",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.lendapi.com/api/v1/variable/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Variable for the Tenant"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization Page Submit API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Page Submit",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "post_page-submit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.lendapi.com/api/v1/page-submit/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

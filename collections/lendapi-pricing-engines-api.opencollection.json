@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization Pricing Engines API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pricing Engines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Pricing Engines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.lendapi.com/api/v1/pricing_engines",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "index of record to start with"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "max number of records to return"
+              }
+            ]
+          },
+          "docs": "Returns all Decision Trees under a Tenant"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization Credit Risk API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Credit Risk",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "integrated function",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.lendapi.com/api/v1/credit_risk/integrated_function_2/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This is a machine learning restful api which returns the subprime risk scores."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

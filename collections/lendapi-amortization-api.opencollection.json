@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Amortization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amortization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.lendapi.com/api/v1/amortization/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint calculates and returns the amortization schedule for a loan based on the provided loan details. The amortization schedule breaks down each payment into principal and interest components over the life of the loan. APR and periodic_payment are also calculated."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization Sub Tenants API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sub Tenants",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Sub Tenants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.lendapi.com/api/v1/sub_tenants",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "index of record to start with"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "max number of records to return"
+              }
+            ]
+          },
+          "docs": "List all Sub Tenants under the Parent Tenant"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

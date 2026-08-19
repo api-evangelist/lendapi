@@ -1,0 +1,440 @@
+{
+  "item": [
+    {
+      "id": "2c53c61b-4735-48ff-a8b6-e975d9b6d94b",
+      "name": "Application",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "181eb326-0275-4aaa-b45d-c70b01491fce",
+          "name": "Create application",
+          "request": {
+            "name": "Create application",
+            "description": {
+              "content": "The api can be used to create an application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "application",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"product_id\": \"<integer>\",\n  \"address1\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"zipcode\": \"<string>\",\n  \"mobile\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"birth_date\": \"<string>\",\n  \"data\": \"<json>\",\n  \"tenant_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39b05619-b693-4b9e-8768-8cd4294b7395",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address1\": \"8751 MEADOWVALE DR\",\n  \"address2\": \"\",\n  \"city\": \"EDEN PRAIRIE\",\n  \"birth_date\": \"1991-11-01\",\n  \"email\": \"bobsmith+82@youremail.com\",\n  \"first_name\": \"dave\",\n  \"last_name\": \"perkin\",\n  \"ssn\": \"666898300\",\n  \"state\": \"MN\",\n  \"zipcode\": \"55347\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"object\\\": \\\"application\\\",\\n    \\\"url\\\": \\\"api/v1/application/\\\",\\n    \\\"id\\\": \\\"d130f351-26a1-4698-9b64-92ae8c46c644\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "183d4b18-8be6-4bf2-a88b-b4b60f6a27c4",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address1\": \"8751 MEADOWVALE DR\",\n  \"address2\": \"\",\n  \"city\": \"EDEN PRAIRIE\",\n  \"birth_date\": \"1991-11-01\",\n  \"email\": \"bobsmith+82@youremail.com\",\n  \"first_name\": \"dave\",\n  \"last_name\": \"perkin\",\n  \"ssn\": \"666898300\",\n  \"state\": \"MN\",\n  \"zipcode\": \"55347\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b214134f-6fcc-47f7-97ec-a830d79aa068",
+          "name": "Get an application",
+          "request": {
+            "name": "Get an application",
+            "description": {
+              "content": "Get the basic info and status of an application. For example, you can use this api to check whether the application is approved, declined by the rules engine. The rules engine and pricing engine results are returned in the engine node of the api response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "application",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) This is the uuid id of the application."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35053a2a-bd62-4025-acbd-ce042ca121d3",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) This is the uuid id of the application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"object\\\": \\\"application\\\",\\n    \\\"url\\\": \\\"/v1/application/2d30a4c7-8a8e-4de3-9718-71857993e357\\\",\\n    \\\"result\\\": {\\n        \\\"app_id\\\": \\\"2d30a4c7-8a8e-4de3-9718-71857993e357\\\",\\n        \\\"lead_id\\\": \\\"\\\",\\n        \\\"first_name\\\": \\\"David\\\",\\n        \\\"last_name\\\": \\\"Perkins\\\",\\n        \\\"email\\\": \\\"xxxx1@lendapi.com\\\",\\n        \\\"address1\\\": \\\"8750 MEADOWVALE DR\\\",\\n        \\\"address2\\\": \\\"\\\",\\n        \\\"city\\\": \\\"EDEN PRAIRIE\\\",\\n        \\\"state\\\": \\\"MN\\\",\\n        \\\"zipcode\\\": \\\"55347\\\",\\n        \\\"status\\\": \\\"Booked\\\",\\n        \\\"engine\\\": {\\n            \\\"decisions\\\": [\\n            ],\\n            \\\"offers\\\": [\\n            ]\\n        }\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5feb359-95e9-4049-b109-ef293b35af82",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) This is the uuid id of the application."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57744658-74a0-4e57-913d-daadbff5f1c2",
+          "name": "put application",
+          "request": {
+            "name": "put application",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "application"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"data\": \"<json>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a4e699ee-7869-4714-82ee-de756f1d5e83",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "AUTHORIZATION",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"data\": \"<json>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.lendapi.com/api/v1/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "AUTHORIZATION"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ba1f3f72-ad65-4c23-b2ff-a099db78267a",
+    "name": "lendapi Amortization Application API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

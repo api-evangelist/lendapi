@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization Decisions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Decisions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Decisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.lendapi.com/api/v1/decisions/",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "index of record to start with"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "max number of records to return"
+              }
+            ]
+          },
+          "docs": "Returns all Decision Trees under a Tenant"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

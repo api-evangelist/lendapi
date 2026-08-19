@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "lendapi Amortization Sub Tenant API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "AUTHORIZATION",
+      "value": "{{AUTHORIZATION}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sub Tenant",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Sub Tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.lendapi.com/api/v1/sub_tenant/:tenant_id",
+            "params": [
+              {
+                "name": "tenant_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This API returns the information related to the sub tenant."
+        },
+        {
+          "info": {
+            "name": "Create Sub Tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.lendapi.com/api/v1/sub_tenant/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Sub Tenant for the Tenant. client_id is an optional param which represents the external id of the sub-tenant. There are two types of Sub-Tenants: with login or without login. If the Sub Tenant doesn't need to login, ignore first_name, last_name, email and password fields."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
