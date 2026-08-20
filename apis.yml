@@ -40,6 +40,22 @@ tags:
 - Company
 - Lending
 - Loan Origination
+- Financial-Services
+- Fintech
+- Embedded Finance
+- Underwriting
+- Decision Engine
+- Credit
+- Banking
+- Account Opening
+- KYC
+- KYB
+- Buy Now Pay Later
+- Point-of-Sale
+tags_raw:
+- Company
+- Lending
+- Loan Origination
 - Financial Services
 - Fintech
 - Embedded Finance
@@ -124,6 +140,8 @@ apis:
   humanURL: https://developer.lendapi.com/reference/introduction
   baseURL: https://app.lendapi.com/api/v1/
   tags:
+  - Decisions
+  tags_raw:
   - Decision
   properties:
   - type: OpenAPI
