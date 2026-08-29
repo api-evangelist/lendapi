@@ -1,0 +1,71 @@
+slug: lendapi
+provider: LendAPI
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 6
+edges:
+- tag: Application
+  spec_file: lendapi-application-api-openapi.yml
+  capability_id: BC-1320.10
+  capability_id_l1: BC-1320
+  capability_name: Credit Origination Management
+  confidence: 0.85
+  evidence: POST /application/ create-application "Create application"; GET /application/{id} "Get an
+    application" on a "loan origination and digital account-opening platform"
+  reason: Operations create and retrieve loan applications on a loan origination platform — this is credit
+    application intake/origination, not a generic software 'application'.
+- tag: Decision
+  spec_file: lendapi-decision-api-openapi.yml
+  capability_id: BC-1320.20
+  capability_id_l1: BC-1320
+  capability_name: Credit Underwriting & Decisioning Management
+  confidence: 0.8
+  evidence: POST /decision/{id}/run/ "Run Decision"; GET /decision/{id}/versions/ "List Decision Versions"
+    — vendor describes a "versioned decision engine" for "underwriting logic"
+  reason: Executing versioned decision rules in a lending platform is credit underwriting and decisioning.
+- tag: Sub Tenant
+  spec_file: lendapi-sub-tenant-api-openapi.yml
+  capability_id: BC-4230.10
+  capability_id_l1: BC-4230
+  capability_name: Tenant Provisioning & Lifecycle
+  confidence: 0.8
+  evidence: POST /sub_tenant/ "Create Sub Tenant"; GET /sub_tenant/{tenant_id} "Get Sub Tenant"
+  reason: Creating and reading sub-tenants is multi-tenant tenant provisioning of the SaaS platform itself,
+    not a lending business capability.
+- tag: Sub Tenants
+  spec_file: lendapi-sub-tenants-api-openapi.yml
+  capability_id: BC-4230.10
+  capability_id_l1: BC-4230
+  capability_name: Tenant Provisioning & Lifecycle
+  confidence: 0.75
+  evidence: GET /sub_tenants list-all-sub-tenants "List all Sub Tenants"
+  reason: Listing the tenant fleet is tenant lifecycle/provisioning administration for the multi-tenant
+    platform.
+- tag: Decisions
+  spec_file: lendapi-decisions-api-openapi.yml
+  capability_id: BC-1320.20
+  capability_id_l1: BC-1320
+  capability_name: Credit Underwriting & Decisioning Management
+  confidence: 0.7
+  evidence: GET /decisions/ list-all-decision-trees "List all Decisions"
+  reason: Listing decision trees of the lending decision engine supports underwriting/decisioning; thinner
+    surface than the Decision tag so lower confidence.
+- tag: Pricing Engine
+  spec_file: lendapi-pricing-engine-api-openapi.yml
+  capability_id: BC-1310.30
+  capability_id_l1: BC-1310
+  capability_name: Banking Product Pricing Management
+  confidence: 0.7
+  evidence: POST /pricing_engine/{id}/run/ "Run Pricing Engine"; vendor cites "a versioned pricing engine"
+    for a lending product
+  reason: Executes versioned pricing rules for lending products, i.e. banking product pricing; could alternatively
+    be read as product parameter configuration, hence 0.7.

@@ -349,6 +349,9 @@ apis:
   - type: DataModel
     url: data-model/lendapi-data-model.yml
 common:
+- type: CapabilityMap
+  url: capabilities/lendapi-capability-edges.yml
+  name: LendAPI Business Capability Map
 - type: Website
   url: https://lendapi.com/
 - type: DeveloperPortal
