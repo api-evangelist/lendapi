@@ -15,6 +15,18 @@ description: >-
   and score credit risk. LendAPI is SOC 2 Type 2 attested and serves use cases across
   point-of-sale finance, buy-now-pay-later, auto lending, fix-and-flip, retail in-store
   lending and embedded finance.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
