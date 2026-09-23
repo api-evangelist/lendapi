@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: lendapi Amortization Application API
+  title: lendapi Application API
   version: '1.0'
 servers:
 - url: https://app.lendapi.com/api/v1/
@@ -228,6 +228,8 @@ paths:
               - id
       tags:
       - Application
+      summary: Put application
+      x-summary-source: derived
 components:
   securitySchemes:
     sec0:
