@@ -54,7 +54,7 @@ tags:
 - Company
 - Lending
 - Loan Origination
-- Financial-Services
+- Financial Services
 - Fintech
 - Embedded Finance
 - Underwriting
@@ -82,6 +82,7 @@ tags_raw:
 - KYB
 - Buy Now Pay Later
 - Point of Sale
+- Financial-Services
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
